@@ -1,0 +1,9 @@
+For Data Visualization : "chartjs" - https://www.chartjs.org/docs/latest/ 
+Component : "antd" - https://ant.design/components/overview
+
+I am using 4 Layer Architecture of Frontend that I learn from my experience
+
+  1. UI (components,pages)
+  2. Hooks (manage state and api layer)
+  3. State (store data - E.g. AuthContext)
+  4. API (communication with backend - E.g auth.api.js)
