@@ -19,13 +19,13 @@ const SideBar = () => {
     <motion.div
       initial={{ x: -100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      className="max-w-45 w-full shadow-sm p-4 border-r border-gray-200 flex flex-col h-full"
+      className="md:max-w-45 md:w-full shadow-sm md:p-4 border-r border-gray-200 bg-white flex md:flex-col md:h-full absolute left-1/2 -translate-x-1/2 md:translate-x-0 bottom-20 md:static justify-center md:justify-start"
     >
-      <div className="w-15 mx-auto mb-10">
+      <div className="w-15 mx-auto mb-10 hidden md:block">
         <img src={logo} alt="" />
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex md:flex-col gap-2">
         {navItems.map((item) => (
           <NavLink
             key={item.to}
@@ -44,7 +44,7 @@ const SideBar = () => {
               className="flex items-center gap-3 w-full"
             >
               <item.icon size={20} />
-              <span className="font-medium">{item.label}</span>
+              <span className="md:font-medium">{item.label}</span>
             </motion.div>
           </NavLink>
         ))}
