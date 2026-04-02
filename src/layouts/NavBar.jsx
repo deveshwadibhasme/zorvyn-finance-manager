@@ -5,7 +5,6 @@ import useRole from "../hooks/useRole";
 
 const NavBar = () => {
   const { role, data, changeRole } = useRole();
-  console.log(data);
 
   function handleChange(changed) {
     if (changed) {
