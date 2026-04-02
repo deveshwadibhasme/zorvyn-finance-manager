@@ -8,13 +8,19 @@ const useRole = () => {
   const { data, setData, permission, setPermission, role, setRole } = context;
 
   function changeRole(roleTo) {
-    console.log(roleTo);
     setRole(roleTo);
     if (roleTo === "admin") {
       setPermission({
         canEdit: true,
         canDelete: true,
         canAdd: true,
+        canView: true,
+      });
+    } else {
+      setPermission({
+        canEdit: false,
+        canDelete: false,
+        canAdd: false,
         canView: true,
       });
     }
@@ -24,7 +30,12 @@ const useRole = () => {
     async function fetchUser() {
       const [userData] = await getUser();
       userData.role = role;
-      userData.permission.length = 0;
+      setPermission({
+        canEdit: false,
+        canDelete: false,
+        canAdd: false,
+        canView: true,
+      });
       userData.permission = permission;
       setData(userData);
     }
