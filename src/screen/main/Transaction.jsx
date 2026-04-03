@@ -3,6 +3,7 @@ import Header from "./layouts/TransactionHeader";
 import TransactionTable from "./layouts/TransactionTable";
 import useTransaction from "../../hooks/useTransaction";
 import PopUpModal from "./components/Modal";
+import TransactionForm from "./components/TransactionForm";
 
 const Transaction = () => {
   const { transaction, loading, addTransaction } = useTransaction();
@@ -16,14 +17,20 @@ const Transaction = () => {
     <section className="p-5">
       <Header openModal={openModal} />
 
-      <TransactionTable dataSource={transaction} />
+      <TransactionTable dataSource={transaction} loading={loading} />
 
       <PopUpModal
         title={"Add New Transaction"}
         open={open}
         openModal={openModal}
       >
-        <h1> Add Your Transaction </h1>
+        <TransactionForm
+          type={"add"}
+          addTransaction={addTransaction}
+          transaction={transaction}
+          open={open}
+          setOpen={setOpen}
+        />
       </PopUpModal>
     </section>
   );

@@ -1,15 +1,15 @@
 import { Modal } from "antd";
 import React from "react";
 
-const PopUpModal = ({ children, title, open, handleSubmit, openModal }) => {
+const PopUpModal = ({ children, title, open, onFinish, openModal }) => {
   return (
     <Modal
       title={<p>{title}</p>}
-      // loading={loading}
+      onOk={onFinish}
       open={open}
       onCancel={openModal}
       okText={"Add"}
-      onOk={handleSubmit}
+      footer={false}
     >
       {children}
     </Modal>

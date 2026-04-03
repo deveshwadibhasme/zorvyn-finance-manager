@@ -30,9 +30,14 @@ const useTransaction = () => {
   }, []);
 
   async function addTransaction(details) {
-    setTransaction((prevState) => [...transaction, details]);
+    setTransaction((prevState) => [details, ...prevState]);
     setRecentTransaction("");
     setRecentTransaction(details);
+  }
+
+  async function editTransaction(id, details) {
+    const toEdit = transaction.find((dt) => dt.id === id);
+    console.log(toEdit);
   }
 
   return {
@@ -41,6 +46,7 @@ const useTransaction = () => {
     transaction,
     addTransaction,
     recentTransaction,
+    editTransaction,
   };
 };
 

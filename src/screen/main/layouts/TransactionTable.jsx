@@ -1,24 +1,25 @@
-import { Table } from "antd";
+import { Table, Tag } from "antd";
 import React, { useEffect, useState } from "react";
 import useRole from "../../../hooks/useRole";
 
-const TransactionTable = ({ dataSource }) => {
+const TransactionTable = ({ dataSource, loading }) => {
   const { data } = useRole();
   const [columnData, setColumnData] = useState();
   const [access, setAccess] = useState(data?.permission?.canAdd);
 
   const columns = [
     {
-      key: "1",
-      title: "Sr. No",
-      dataIndex: "id",
-      text: ({ _, dt }) => <span>{dt.id}</span>,
-    },
-    {
       key: "2",
       title: "Category",
       dataIndex: "category",
-      text: ({ _, dt }) => <span>{dt.category?.toUpperCase()}</span>,
+      render: (_, { category }, index) => (
+        <Tag
+          key={index}
+          color={category === "income" ? "green-inverse" : "blue-inverse"}
+        >
+          {category?.toUpperCase()}
+        </Tag>
+      ),
     },
     {
       key: "3",
@@ -74,9 +75,10 @@ const TransactionTable = ({ dataSource }) => {
 
   return (
     <Table
-      className="mt-5"
+      className="mt-5 w-full overflow-x-scroll"
       dataSource={dataSource}
       columns={columnData}
+      loading={loading}
     ></Table>
   );
 };
