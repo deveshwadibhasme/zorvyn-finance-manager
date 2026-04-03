@@ -28,7 +28,7 @@ const NavBar = () => {
             role !== "admin" ? " bg-blue-400" : "bg-purple-900"
           } text-white`}
         />
-        {/* <span>{data.name}</span> */}
+        <span className="hidden md:block">{data?.name}</span>
       </Flex>
     </header>
   );

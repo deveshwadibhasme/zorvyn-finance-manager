@@ -1,9 +1,17 @@
 For Data Visualization : "chartjs" - https://www.chartjs.org/docs/latest/ 
 Component : "antd" - https://ant.design/components/overview
 
-I am using 4 Layer Architecture of Frontend that I learn from my experience
+Using 4 Layer Architecture of Frontend
 
   1. UI (components,pages)
   2. Hooks (manage state and api layer)
   3. State (store data - E.g. AuthContext)
   4. API (communication with backend - E.g auth.api.js)
+
+Used Antd Component :   
+  1. Switch
+  2. Form
+  3. Select, DatePicker, Button, Tag 
+  4. Modal
+  5. Table (antd Table support filtering method but I decided to implement it myself)
+
