@@ -19,7 +19,7 @@ const SideBar = () => {
     <motion.div
       initial={{ x: -100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      className="md:max-w-45 z-10 md:w-full shadow-sm md:p-4 border-r border-gray-200 bg-white flex md:flex-col md:h-full absolute left-1/2 -translate-x-1/2 md:translate-x-0 bottom-15 md:static justify-center md:justify-start"
+      className="md:max-w-45 z-10 md:w-full shadow-sm md:p-4 border-r border-gray-200 bg-white/10 backdrop-blur-sm rounded-2xl flex md:flex-col md:h-full absolute left-1/2 -translate-x-1/2 md:translate-x-0 bottom-10 md:static justify-center md:justify-start"
     >
       <div className="w-15 mx-auto mb-10 hidden md:block">
         <img src={logo} alt="" />
@@ -34,7 +34,7 @@ const SideBar = () => {
               `flex items-center gap-3 p-3 rounded-lg transition-all duration-200 ${
                 isActive
                   ? "bg-blue-600 text-white shadow-md shadow-blue-200"
-                  : "text-gray-600 hover:bg-gray-100"
+                  : "text-black hover:bg-gray-100"
               }`
             }
           >

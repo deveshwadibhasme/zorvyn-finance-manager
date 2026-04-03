@@ -7,9 +7,9 @@ export default [
         permission: {},
         profilePic: "",
         financialDetails: {
-            balance: 24000,
-            income: 26000,
-            expense: 15700,
+            balance: 0,
+            income: 0,
+            expense: 0,
             updatedAt: "",
         },
     },
