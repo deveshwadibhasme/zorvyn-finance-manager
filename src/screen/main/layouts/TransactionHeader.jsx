@@ -4,12 +4,12 @@ import { FaPlus } from "react-icons/fa";
 import useRole from "../../../hooks/useRole";
 
 const TransactionHeader = ({ openModal }) => {
-  const { data } = useRole();
-  const [access, setAccess] = useState(data?.permission.canAdd);
+  const { permission } = useRole();
+  const [access, setAccess] = useState(permission?.canAdd);
 
   useEffect(() => {
-    setAccess(data?.permission.canAdd);
-  }, [data?.permission.canAdd]);
+    setAccess(permission?.canAdd);
+  }, [permission?.canAdd]);
 
   return (
     <header className="flex justify-between items-center px-4 py-5 bg-white rounded-2xl">

@@ -5,7 +5,7 @@ import { getUser } from "../service/getUser";
 const useRole = () => {
   const context = useContext(RoleContext);
 
-  const { data, setData, permission, setPermission, role, setRole } = context;
+  const { permission, setPermission, role, setRole } = context;
 
   function changeRole(roleTo) {
     setRole(roleTo);
@@ -26,27 +26,7 @@ const useRole = () => {
     }
   }
 
-  useEffect(() => {
-    async function fetchUser() {
-      const [userData] = await getUser();
-      userData.role = role;
-      setPermission({
-        canEdit: false,
-        canDelete: false,
-        canAdd: false,
-        canView: true,
-      });
-      userData.permission = permission;
-      setData(userData);
-    }
-    fetchUser();
-
-    () => {
-      setData([]);
-    };
-  }, [role]);
-
-  return { data, changeRole, role };
+  return { changeRole, role, permission };
 };
 
 export default useRole;

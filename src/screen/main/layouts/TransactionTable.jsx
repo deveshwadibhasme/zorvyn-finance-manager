@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import useRole from "../../../hooks/useRole";
 
 const TransactionTable = ({ dataSource, loading }) => {
-  const { data } = useRole();
+  const { data, permission } = useRole();
   const [columnData, setColumnData] = useState();
-  const [access, setAccess] = useState(data?.permission?.canAdd);
+  const [access, setAccess] = useState(permission?.canAdd);
 
   const columns = [
     {
@@ -71,11 +71,11 @@ const TransactionTable = ({ dataSource, loading }) => {
         ];
       });
     }
-  }, [data?.permission.canAdd]);
+  }, [permission?.canAdd]);
 
   return (
     <Table
-      className="mt-5 w-full overflow-x-scroll"
+      className="mt-5 w-full overflow-x-scroll bg-white"
       dataSource={dataSource}
       columns={columnData}
       loading={loading}
