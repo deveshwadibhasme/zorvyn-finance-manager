@@ -2,9 +2,11 @@ import { Flex, Switch } from "antd";
 import React from "react";
 import { LuUser } from "react-icons/lu";
 import useRole from "../hooks/useRole";
+import useData from "../hooks/useData";
 
 const NavBar = () => {
-  const { role, data, changeRole } = useRole();
+  const { role, changeRole } = useRole();
+  const { data } = useData();
 
   function handleChange(changed) {
     if (changed) {

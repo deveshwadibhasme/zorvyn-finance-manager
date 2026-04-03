@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const TransactionContext = createContext();
 
 export const TransactionProvider = ({ children }) => {
-  const [transaction, setTransaction] = useState([]);
+  const [transaction, setTransaction] = useState();
   const [loading, setLoading] = useState(false);
   const [recentTransaction, setRecentTransaction] = useState();
 
