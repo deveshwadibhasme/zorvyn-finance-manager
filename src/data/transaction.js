@@ -61,7 +61,7 @@ export default [
         category: "expense",
         amount: 1500,
         date: "14/09/2025",
-        escription: "Books and Stationery",
+        description: "Books and Stationery",
         method: "Credit Card"
     },
     {

@@ -15,3 +15,10 @@ Used Antd Component :
   4. Modal
   5. Table (antd Table support filtering method but I decided to implement it myself)
 
+Bugs
+
+ #abbb951 : 
+ At this role based flow ui bug commit I point out a mistake that I get and storing user data through useRole hooks that is causing in every role change action user fetching again and the data I manupulating is going to its previos value and having bug in role context
+
+ As a solution, I create useData a another hook for userData and bug is solved
+
