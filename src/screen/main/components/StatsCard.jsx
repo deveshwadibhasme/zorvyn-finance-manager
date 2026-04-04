@@ -1,8 +1,9 @@
 import { FaRupeeSign } from "react-icons/fa";
 import { FaMoneyBill, FaMoneyBillWave, FaMoneyCheck } from "react-icons/fa";
 import { motion } from "framer-motion";
+import StatsGraph from "./layouts/StatsGraph";
 
-const StatsCard = ({ allStats }) => {
+const StatsCard = ({ allStats, recentTransaction }) => {
   const [balance, income, expenses] = allStats;
 
   const stats = [
@@ -38,6 +39,13 @@ const StatsCard = ({ allStats }) => {
       <span className="text-3xl md:text-5xl mt-5 font-extrabold text-green-950">
         <FaRupeeSign className="inline-block text-sm md:text-2xl" />
         {dt.value}
+      </span>
+      <span className="flex items-center ml-auto">
+        <StatsGraph
+          type={recentTransaction?.category}
+          category={dt?.title}
+          value={recentTransaction?.amount}
+        />
       </span>
     </motion.div>
   ));

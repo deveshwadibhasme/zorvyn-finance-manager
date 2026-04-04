@@ -1,4 +1,5 @@
-import { Form, Input, Select, DatePicker, Button } from "antd";
+import { Form, Input, Select, DatePicker, Button, message } from "antd";
+import useFinancialStats from "../../../hooks/useFinancialStats";
 
 const TransactionForm = ({
   type,
@@ -8,6 +9,7 @@ const TransactionForm = ({
   setOpen,
 }) => {
   const [form] = Form.useForm();
+  const { balance } = useFinancialStats();
 
   const openModal = () => {
     setOpen(!open);
@@ -15,6 +17,10 @@ const TransactionForm = ({
 
   const onFinish = (values) => {
     if (type === "add") {
+      if (values.category === "expense" && balance < Number(values.amount)) {
+        message.info("You don't have enough money");
+        return;
+      }
       addTransaction({
         id: transaction.length + 1,
         ...values,
@@ -22,6 +28,7 @@ const TransactionForm = ({
         date: values.date.format("DD/MM/YYYY"),
       });
       openModal();
+      message.success("Transaction Added");
       form.resetFields();
     } else {
     }

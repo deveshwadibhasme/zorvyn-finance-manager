@@ -5,16 +5,11 @@ import useRole from "../../../hooks/useRole";
 
 const TransactionHeader = ({ openModal }) => {
   const { permission } = useRole();
-  const [access, setAccess] = useState(permission?.canAdd);
-
-  useEffect(() => {
-    setAccess(permission?.canAdd);
-  }, [permission?.canAdd]);
 
   return (
     <header className="flex justify-between items-center px-4 py-5 bg-white rounded-2xl">
       <h1 className="text-xl md:text-2xl">Your Transaction</h1>
-      {access && (
+      {permission?.canAdd && (
         <motion.button
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}

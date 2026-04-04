@@ -4,6 +4,7 @@ import TransactionTable from "./layouts/TransactionTable";
 import useTransaction from "../../hooks/useTransaction";
 import PopUpModal from "./components/Modal";
 import TransactionForm from "./components/TransactionForm";
+import TransactionFilter from "./layouts/TransactionFilter";
 
 const Transaction = () => {
   const { transaction, loading, addTransaction } = useTransaction();
@@ -17,6 +18,7 @@ const Transaction = () => {
     <section className="p-5">
       <Header openModal={openModal} />
 
+      <TransactionFilter />
       <TransactionTable dataSource={transaction} loading={loading} />
 
       <PopUpModal
