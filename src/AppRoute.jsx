@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Dashboard from "./screen/main/Dashboard";
 import AppLayout from "./AppLayout";
 import Transaction from "./screen/main/Transaction";
+import Insights from "./screen/main/Insights";
 
 export const routes = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/insights",
-        element: <Dashboard />,
+        element: <Insights />,
       },
     ],
   },
